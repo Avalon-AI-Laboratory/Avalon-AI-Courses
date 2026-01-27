@@ -1,4 +1,4 @@
-# This part we are gonna talk about Gradient Descent and Backpropagation
+# Gradient Descent and Backpropagation
 and for this particular topics, iam gonna use **Grant Anderson (A.K.A 3Blue1Brown)**'s video as a reference so shoutout to the videos <a href="https://www.youtube.com/watch?v=IHZwWFHWa-w">Gradient Descent</a> and <a href="https://www.youtube.com/watch?v=tIeHLnjs5U8"> BackPropagation</a>
 
 Spoiler alert the neural network used in the videos, are fully connected layer. and for backpropagation process (because gradient used in backprop). it actually does the same thing to CNN.

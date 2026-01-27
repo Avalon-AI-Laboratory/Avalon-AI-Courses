@@ -1,1 +1,1 @@
-# Hai
+# Coming Soon (WGAN)

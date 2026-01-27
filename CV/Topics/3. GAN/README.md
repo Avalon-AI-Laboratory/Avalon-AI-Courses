@@ -1,4 +1,4 @@
-# Generative Adversarial Networks (GAN): Sebuah Tinjauan Profesional
+# Generative Adversarial Networks (GAN)
 
 ## Abstrak
 
