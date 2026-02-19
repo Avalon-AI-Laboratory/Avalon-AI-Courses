@@ -1,10 +1,10 @@
-# 📃 Preface (Fundamentals)
+# 📃 Preface
 
 <div style="width: 50%; margin: 0 auto;">
 
 | Previous Material |        Current         |         Next Material          |
 | :---------------: | :--------------------: | :----------------------------: |
-| [◁](../../README.md) | "Fundamentals Preface" | [▷](./normalization/README.md) |
+| [◁](../README.md) | "Fundamentals Preface" | [▷](./normalization/README.md) |
 
 </div>
 

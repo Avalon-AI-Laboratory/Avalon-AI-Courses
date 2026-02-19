@@ -1,4 +1,12 @@
-# Attention
+# 👀 Attention
+
+<div style="width: 50%; margin: 0 auto;">
+
+|   Previous Material  |           Current            |          Next Material             |
+| :------------------: | :--------------------------: | :--------------------------------: |
+|    [◁](./rnn.md)     |   "Attention"                |    [▷](../attention.md)            |
+
+</div>
 
 Attention is a technique that allows a neural network to focus on specific parts of an input sequence when performing a task. In NLP, it was originally developed for machine translation, especially as models often struggled with long sequences.
 
