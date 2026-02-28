@@ -6,3 +6,4 @@ This repository collects various courses related to Artificial Intelligence, Mac
 - Natural Language Processing (fundamentals and language understanding)
 - Computer Vision (CNN, Auto Encoder, GAN, and Diffusion)
 - Docker (Basic and Study Cases)
+- MLOps (Instalations and Deployment)
