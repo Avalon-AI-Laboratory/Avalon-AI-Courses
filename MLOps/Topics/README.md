@@ -125,47 +125,9 @@ with open("model.pkl", "wb") as model_file:
 
 ## Creating `app.py`
 
-```python
-#importing libraries
-import numpy as np
-import flask
-import pickle
-from flask import Flask, render_template, request
+Source Code:
+[Here](./SourceCode/app.py)
 
-#creating instance of the class
-app = Flask(__name__)
-
-#to tell flask what url should trigger the function index()
-@app.route('/')
-@app.route('/index')
-def index():
-    return flask.render_template('index.html')
-
-#prediction function
-def ValuePredictor(to_predict_list):
-    to_predict = np.array(to_predict_list).reshape(1,12)
-    loaded_model = pickle.load(open(r"path_to_the_saved_model","rb"))
-    result = loaded_model.predict(to_predict)
-    return result[0]
-
-@app.route('/result', methods = ['POST'])
-def result():
-    if request.method == 'POST':
-        to_predict_list = request.form.to_dict()
-        to_predict_list = list(to_predict_list.values())
-        to_predict_list = list(map(int, to_predict_list))
-        result = ValuePredictor(to_predict_list)
-
-        if int(result) == 1:
-            prediction = 'Income more than 50K'
-        else:
-            prediction = 'Income less that 50K'
-
-        return render_template("result.html", prediction=prediction)
-
-if __name__ == "__main__":
-    app.run(debug=True)
-```
 
 **Code Breakdown:**
 
@@ -180,104 +142,12 @@ if __name__ == "__main__":
 
 We create all the HTML files in a `templates` folder in Flask.
 
-### `index.html`
+[Templates folder :](./SourceCode/templates/templates/)
 
-```html
-<html>
-  <body>
-    <h3>Income Prediction Form</h3>
-    <div>
-      <form action="/result" method="POST">
-        <!-- Input fields and select elements -->
-        <!-- (Full form content preserved as original) -->
-      </form>
-    </div>
-  </body>
-</html>
-```
 
-**Output:**
-
-![alt text](image-2.png)
-
----
-
-### `result.html`
-
-```html
-<!DOCTYPE html>
-<html>
-  <body>
-    <h1>{{ prediction }}</h1>
-  </body>
-</html>
-```
-
----
-
-## Complete `preprocessing.py` Code
-
-```python
-import os
-import pandas as pd
-import numpy as np
-from sklearn import preprocessing
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
-import pickle
-
-# Load dataset
-file_path = os.path.join("C:", "Users", "Asus", "Desktop", "Suven", "practise_DS", "adult.csv")
-df = pd.read_csv(r"path_to_the_dataset")
-
-# Filling missing values
-df.replace("?", np.nan, inplace=True)
-df.fillna(df.mode().iloc[0], inplace=True)
-
-# Discretization (simplifying marital status)
-df.replace(['Divorced', 'Married-AF-spouse', 'Married-civ-spouse',
-            'Married-spouse-absent', 'Never-married', 'Separated', 'Widowed'],
-           ['divorced', 'married', 'married', 'married',
-            'not married', 'not married', 'not married'], inplace=True)
-
-# Label Encoding
-category_col = ['workclass', 'race', 'education', 'marital-status', 'occupation',
-                'relationship', 'gender', 'native-country', 'income']
-label_encoder = preprocessing.LabelEncoder()
-
-# Creating a mapping dictionary
-mapping_dict = {}
-for col in category_col:
-    df[col] = label_encoder.fit_transform(df[col])
-    mapping_dict[col] = dict(enumerate(label_encoder.classes_))
-
-print(mapping_dict)
-
-# Dropping redundant columns
-df.drop(['fnlwgt', 'educational-num'], axis=1, inplace=True)
-
-# Splitting features and target
-X = df.iloc[:, :-1].values
-Y = df.iloc[:, -1].values
-
-# Train-Test Split
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3, random_state=100)
-
-# Initialize and Train Decision Tree Classifier
-dt_clf_gini = DecisionTreeClassifier(criterion="gini", random_state=100, max_depth=5, min_samples_leaf=5)
-dt_clf_gini.fit(X_train, y_train)
-
-# Predictions
-y_pred_gini = dt_clf_gini.predict(X_test)
-
-# Accuracy Score
-print("Decision Tree using Gini Index\nAccuracy:", accuracy_score(y_test, y_pred_gini) * 100)
-
-# Save Model Using Pickle
-with open("model.pkl", "wb") as model_file:
-    pickle.dump(dt_clf_gini, model_file)
-```
+## Creating `preprocessing.py` Code
+Source Code:
+[Here](./SourceCode/preprocessing.py)
 
 ---
 

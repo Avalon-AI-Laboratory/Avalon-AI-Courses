@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hasil Prediksi</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+        background-color: #f4f4f4;
+      }
+      .card {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        display: inline-block;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .result {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+        margin-top: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: #666;
+        display: block;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Laporan Hasil Prediksi Model:</h2>
+      <div class="result">{{ prediction }}</div>
+      <a href="/">← Kembali ke Form</a>
+    </div>
+  </body>
+</html>
